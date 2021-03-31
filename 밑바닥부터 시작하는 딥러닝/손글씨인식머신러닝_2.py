@@ -2,7 +2,7 @@ import numpy as np
 from mnist import load_mnist
 import PIL
 from PIL import Image
-
+import pickle
 
 def get_data():
     (x_train, t_train),(x_test, t_test) = \
@@ -24,6 +24,14 @@ def predict(network, x):
     z2 = sigmoid(a2)
     a3 = np.dot(z2, W3) +b3
     y = softmax(a3)
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
 
 # 이제 선언한 함수들로 추론을 수행해보자.
 
