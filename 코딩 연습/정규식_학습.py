@@ -14,7 +14,8 @@ with open("database.txt", "r", encoding = "UTF-8") as f:
 
 cleaned_database = re.sub('[<>]', '', database)
 
-print(cleaned_database)
+cleaned_database = re.sub('["scripts"]', '', cleaned_database)
 
 with open("c_database.txt", "w", encoding = 'UTF-8') as f:
     f.write(cleaned_database)
+
