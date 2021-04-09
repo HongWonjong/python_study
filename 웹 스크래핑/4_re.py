@@ -5,9 +5,9 @@ def print_match(m):
     if m:
         print("m.group():", m.group())   # group은 일치하면 일치하는 문자열을 반환
         print("m.string():", m.string) # string은 일치하면 입력받은 문자열을 그대로 반환
-        print("m.start():", m.start())
-        print("m.end():", m.end())
-        print("m.span():", m.span())
+        print("m.start():", m.start()) # start()는 일치하면 해당 문자열의 시작 인덱스를 반환
+        print("m.end():", m.end()) # 해당 문자열의 끝 인덱스를 반환
+        print("m.span():", m.span()) # 해당 문자열의 시작과 끝 인덱스를 반환
     else:
         print("매칭되지 않았습니다.")
 p = re.compile("ca.e") 
