@@ -1,5 +1,5 @@
 """
-WSGI config for poll project.
+WSGI config for Djjjango project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'poll.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Djjjango.settings')
 
 application = get_wsgi_application()
