@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v88lx6y*q)k^41fpa2cu9lqd#8s%x(rb9vkv)!^d%yx3(iy@*p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'database1', # 해당 데이터베이스의 모든 주소를 같이 입력해주어야 한다.
         'USER': 'postgres', # 유저 이름은 postgresql로 써야 한다.
         'PASSWORD': 'retopia-486',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432' 
     }
 }
@@ -123,7 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
