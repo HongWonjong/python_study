@@ -16,3 +16,19 @@ for i in range(5):
 bs = BeautifulSoup(r.text, "lxml")
 
 lists = bs.select("div.mnr-c.xpd")
+
+for l in lists:
+    current_utc_time = round(datetime.utcnow().timestamp() * 1000)
+
+    try:
+        title = l.select_one("h3.LC20lb DKVoMd").text
+        contents = l.select_one("div.VwiC3b yXK7lf MUxGbd yDYNvb lyLwlc.span").text
+        col.insert_one({
+            "name": "테스트",
+            "title": "title",
+            "contents": contents,
+            "view": 0,
+            "pubcate": current_utc_time
+        })
+    except: 
+        pass
