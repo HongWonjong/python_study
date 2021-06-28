@@ -1,0 +1,277 @@
+
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "단짠단짠의 대패덮밥",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/10/22/3211f299a02729bc2d05649ceec734771_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/10/22/3211f299a02729bc2d05649ceec734771.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "나나미루꾸"
+    },
+    "datePublished": "2017-10-22T23:52:02+09:00",
+    "description": "뜨끈한 밥에 대패삼겹살 한점! 집밥백선생 강추레시피! 간단하고 빠르게 만드는 별미메뉴! 입맛없을때 만들먹으면 밥두공기도 거뜬해요.",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "146"
+    },
+            "totalTime": "PT30M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["대패 삼겹살 400g","대파 2뿌리","설탕 2스푼","맛간장(OR진간장) 4스푼"],    "recipeInstructions": [{"@type":"HowToStep","text":"궁중팬에 대패삼겹살을 넣어줍니다."},{"@type":"HowToStep","text":"대파는 큼직하게 썰어서 준비합니다."},{"@type":"HowToStep","text":"대패삼겹살이 골고루 익도록 볶아줍니다."},{"@type":"HowToStep","text":"고기가 적당히 익으면 준비한 대파를 넣고 좀더 볶아줍니다."},{"@type":"HowToStep","text":"대패삼겹살이 노릇해질 정도로 충분히 익혀준 뒤"},{"@type":"HowToStep","text":"설탕 2스푼을 넣고 한번 더 볶아줍니다."},{"@type":"HowToStep","text":"설탕을 넣고 볶아주면 고기에 윤기가 돌아요."},{"@type":"HowToStep","text":"맛간장 또는 진간장을 4큰술 넣고 한번 더 볶아줍니다."},{"@type":"HowToStep","text":"삼겹살에 간장 양념이 골고루 베이도록 볶아주면 완성이에요^^"},{"@type":"HowToStep","text":"오목한 그릇에 따뜻한밥을 담고, 그 위에 볶은 고기를 올려주면 대패덥밥 완성!"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "♥[신혼밥상] 팽이버섯 덮밥",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/06/03/4f573fef12f96ef7576c9d0f9603e1b51_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/06/03/4f573fef12f96ef7576c9d0f9603e1b51.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "행복한윤블리네"
+    },
+    "datePublished": "2020-06-03T20:34:00+09:00",
+    "description": "10분 레시피! 1,000원의 행복! 간단한데 맛까지 있음 100점 ^---^ 한그릇 팽이버섯 덮밥 함께해요~",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "23"
+    },
+            "totalTime": "PT10M",
+            "recipeYield": "1 servings",
+        "recipeIngredient": ["팽이버섯 1봉","대파 1줌","양파 1/2개","달걀 1개","참기름 약간","통깨 적당히","간장 2숟가락","굴소스 0.5숟가락","설탕 0.5숟가락","맛술 2숟가락","물 3큰술"],    "recipeInstructions": [{"@type":"HowToStep","text":"팽이버섯은 3등분으로 자르고 양파와 대파는 채썰어주세요."},{"@type":"HowToStep","text":"간장 2, 맛술 2, 물 3, 굴소스 0.5, 설탕 0.5숟가락을 넣고 소스를 만들어주세요."},{"@type":"HowToStep","text":"달군팬에 기름을 두르고 대파, 양파, 팽이버섯을 넣고 숨이 죽을 만큼 살짝 볶아주세요."},{"@type":"HowToStep","text":"소스를 부어주세요."},{"@type":"HowToStep","text":"국물이 자작자작해질때까지 조려주면 완성!"},{"@type":"HowToStep","text":"국물이 자작해질 동안 달걀프라이 하나 ^^"},{"@type":"HowToStep","text":"밥을 담고 달걀프라이를 올린 다음 흰자 위로 팽이버섯 비~잉 참기름 톡~통깨 뿌려주면 초간단 초저렴 든든한끼 완성!"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "치킨너겟으로 간편하게 간장치킨 만들기",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/04/13/28b6227ec7f7a07d0bc43b48394bc81c1_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/04/13/28b6227ec7f7a07d0bc43b48394bc81c1.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "미소앨범by하준맘"
+    },
+    "datePublished": "2017-04-13T16:16:02+09:00",
+    "description": "언제나 사랑하는 치느님이지만 매번 시켜먹기도 부담스럽잖아요. 그렇다고 생닭을 가지고 치킨을 만들자니 번거롭기도 하고요. 치킨너겟만 있으면 15분이면 아주 간편하게 간장치킨을 만들 수 있답니다. 간편함과 맛을 동시에 잡은 치킨너겟 간장치킨 만들어 봅니다.",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "205"
+    },
+            "totalTime": "PT15M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["치킨너겟 20개","견과류(아몬드or땅콩) 1줌(생략 가능)","진간장 3 스푼(밥수저)","설탕 2 스푼(밥수저)","올리고당 3 스푼(밥수저)","다진 마늘 1 스푼(밥수저)","매실액 1 스푼(밥수저)","맛술 2 스푼(밥수저)","물 3 스푼(밥수저)"],    "recipeInstructions": [{"@type":"HowToStep","text":"[치킨너겟 노릇하게 튀기기]  프라이팬에 치킨너겟이 절반 정도 잠길정도의 식용유를 두르고 로 한 면씩 뒤집어 가며 튀겨주세요. 제 기준으로 5분씩 총 10분 튀겨주었어요."},{"@type":"HowToStep","text":"[기름기 제거]  튀겨진 너겟은 키친타월에 올려서 표면 기름을 제거해주세요."},{"@type":"HowToStep","text":"[간장치킨 소스 만들기]  작은 볼에 진간장 3 스푼, 설탕 2스푼, 올리고당 3 스푼, 다진 마늘 1 스푼, 매실액 1 스푼, 맛술 2 스푼, 물 3스푼을 넣고 섞어주세요."},{"@type":"HowToStep","text":"[간장소스에 버무리기]  움푹 팬 프라이팬에 소스를 넣고 로 가열해 주세요. 몇 초 후 끓기 시작하면 로 내린 후, 치킨너겟을 모두 넣고, 주걱으로 버무려 주세요."},{"@type":"HowToStep","text":"[취향에 따라 견과류 추가]  소스가 거의 없어졌을 때 먹기 좋게 부셔놓은 견과류를 넣어주시고 에서 30초 정도만 버무려 주세요."}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "달콤 짭조름♡ 떡 베이컨 간장조림♡",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/02/16/d74c6731fce3dc72c5579b24083185f11_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/02/16/d74c6731fce3dc72c5579b24083185f11.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "요블리"
+    },
+    "datePublished": "2016-02-16T19:15:31+09:00",
+    "description": "간단하니 맛있는 반찬! 아주 쉬워요 : )",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "63"
+    },
+            "totalTime": "PT5M",
+            "recipeYield": "3 servings",
+        "recipeIngredient": ["베이컨","대파","떡","간장","참기름","물엿","기름"],    "recipeInstructions": [{"@type":"HowToStep","text":"대파에 떡국떡 (가래떡, 떡볶이떡) 베이컨"},{"@type":"HowToStep","text":"기름두르고 볶듯구워요.(튀기듯하면 더 맛있습니다)"},{"@type":"HowToStep","text":"간장.물엿.참기름을 넣어 볶아요. 간장 한스푼, 물엿 넉넉히, 참기름한스푼(이런 느낌 비율로. )"},{"@type":"HowToStep","text":"볶아주며 졸입니다."},{"@type":"HowToStep","text":"국물없게끔 졸여야 맛있어용: )"},{"@type":"HowToStep","text":"깨도 뿌리고 한번 볶아준 후 끝."},{"@type":"HowToStep","text":"완성^^"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "#최애반찬#소세지강정",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/05/18/2cad62498784efd2b97c0f80abebfcff1_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/05/18/2cad62498784efd2b97c0f80abebfcff1.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "심킹카"
+    },
+    "datePublished": "2020-05-27T22:00:59+09:00",
+    "description": "아이들의 최애반찬! 저 또한 소세지 반찬만 있으면  밥 뚝딱이랍니다. 밥도둑 도시락 반찬이자  술안주로도 최고 최고ㅋㅋ",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "13"
+    },
+            "totalTime": "PT20M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["비엔나 소세지 30개","양파 1개","캐첩 5큰술","간장 1스푼","설탕 1스푼","식초 1스푼","굴소스 1스푼","올리고당 1스푼"],    "recipeInstructions": [{"@type":"HowToStep","text":"소세지 슥슥 칼집을 넣어주세요."},{"@type":"HowToStep","text":"끓는 물에 살짝 데쳐 주세요."},{"@type":"HowToStep","text":"캐첩 5스푼, 간장 1스푼, 굴소스 1스푼, 설탕 1스푼, 식초 1스푼을 넣고 양념장을 만들어 주세요."},{"@type":"HowToStep","text":"달군팬에 양파 등을 볶아주세요."},{"@type":"HowToStep","text":"데친 소세지를 넣어주세요."},{"@type":"HowToStep","text":"양념장을 넣고 달달 볶아주세요."},{"@type":"HowToStep","text":"윤기 및 달달한 맛을 추가하기 위해 올리고당 한바퀴만 둘러주면 밥도둑 최애반찬 완성입니다."}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "비엔나 만두 강정",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/09/28/d445feff73d436cbea92af449c3f66ac1_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2017/09/28/d445feff73d436cbea92af449c3f66ac1.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "찌니훗"
+    },
+    "datePublished": "2017-09-28T22:12:17+09:00",
+    "description": "만두 강정을 만드려다가 집에 비엔나소세지가 있어서 같이 만들어봤어요ㅎㅎ",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "87"
+    },
+            "totalTime": "PT15M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["만두(교자만두/물만두) 10개","비엔나소세지 작은거 1봉","물 1T","간장 1T","고추장 2T","케찹 2T","올리고당 1.5T","다진마늘 1t","참기름 약간","깨 약간"],    "recipeInstructions": [{"@type":"HowToStep","text":"만두는 기름을 두룬 팬에 노릇하게 구워줍니다."},{"@type":"HowToStep","text":"비엔나 소세지에 원하는 모양대로 칼집을 내고 팬에 볶아줍니다. 양파가 있다면 같이 볶아줘도 좋아요:)"},{"@type":"HowToStep","text":"비엔나가 어느정도 구워지면 만두를 같이 넣어줍니다."},{"@type":"HowToStep","text":"양념장을 넣고 양념이 고루 베이도록 잘 섞어줍니다."},{"@type":"HowToStep","text":"양념이 어느정도 베이면 위에 통깨를 뿌려 마무리합니다."},{"@type":"HowToStep","text":"간식이나 술안주, 밑반찬으로 먹기 좋은 비엔나만두강정 완성!"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "담백한 새우연두부달걀탕",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/05/02/cb02f276edb4a52aaf86196bce187db51_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/05/02/cb02f276edb4a52aaf86196bce187db51.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "yejib1112"
+    },
+    "datePublished": "2016-05-02T14:54:32+09:00",
+    "description": "간단하지만 세상 시원한! 담백한 새우연두부달걀탕입니다:)",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "97"
+    },
+            "totalTime": "PT15M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["연두부 1팩","새우 10-12마리","달걀 1개","송송 썬 쪽파 1-2줌","다시마 5cm x 5cm 1장","간장 1-1.5T"],    "recipeInstructions": [{"@type":"HowToStep","text":"우선 다시마물을 만들어요. 냄비에 물 붓고 다시마를 넣어 센 불에서 끓이다 끓어오르면 약불로 줄여 약 15분간 더 끓여주세요."},{"@type":"HowToStep","text":"15분 후, 다시마는 건져 내고"},{"@type":"HowToStep","text":"수저로 듬성듬성 연두부를 퍼서 냄비에 넣어주세요."},{"@type":"HowToStep","text":"그리고 새우 넣고 간장 1-1.5T 넣어주세요."},{"@type":"HowToStep","text":"센 불에서 약 5분간 팔팔 끓여주세요. 떠오르는 거품은 걷어주세요~"},{"@type":"HowToStep","text":"불을 약불로 줄이고 달걀물을 원을 그려가며 쪼로록 부어주세요. 달걀물이 바닥에 붙지 않도록 한번만 휘이 저어주세요."},{"@type":"HowToStep","text":"쪽파 올리고, 후추 톡톡하면 완성입니다. 간 보고 싱거우면 소금으로 간해주세요~"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "볶아 먹는 시금치도 맛있다♪ 시금치달걀볶음 ",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2018/07/09/9025fd8fdc716755317050bf74df79f91_f.JPG",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2018/07/09/9025fd8fdc716755317050bf74df79f91.JPG"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "yejib1112"
+    },
+    "datePublished": "2018-07-09T14:31:41+09:00",
+    "description": "달걀이랑 함께 볶은 시금치 달걀볶음입니다:)",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "45"
+    },
+            "totalTime": "PT15M",
+            "recipeYield": "4 servings",
+        "recipeIngredient": ["시금치 1/2단","달걀 3알","기름 2-3T","다진파 1줌","소금 3꼬집"],    "recipeInstructions": [{"@type":"HowToStep","text":"시금치는 깨끗하게 씻은 뒤 먹기 좋게 잘라주세요."},{"@type":"HowToStep","text":"달걀 3알은 소금 한꼬집 넣어 잘 풀어주세요."},{"@type":"HowToStep","text":"팬에 기름 살짝 두르고 달걀물을 넣어 약불에서 젓가락으로 저어가며 스크럼블 에그를 만들어 주세요."},{"@type":"HowToStep","text":"만들어진 스크럼블 에그는 접시에 잠시 덜어놓아 주세요."},{"@type":"HowToStep","text":"팬에 기름 2T, 다진파 한 줌을 넣어 약불에서 파기름을 만들어 주세요."},{"@type":"HowToStep","text":"파향이 올라오면 센불로 올리고 시금치를 넣어주세요."},{"@type":"HowToStep","text":"시금치 숨이 살짝 죽으면 소금 두꼬집 정도 넣어 잘 섞어주세요."},{"@type":"HowToStep","text":"그리고 아까 만들어 놓은 스크럼블 에그를 다시 넣어 잘 섞어주면 완성입니다:) 부족한 간은 소금으로 맞춰주세요."}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "초간단 럭셔리요리@ 매콤참치퀘사디아",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/04/08/8448b043b2e1eb6cb55041b0bffb1a281_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2016/04/08/8448b043b2e1eb6cb55041b0bffb1a281.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "kimkim"
+    },
+    "datePublished": "2016-04-08T18:58:03+09:00",
+    "description": "밖에서 사먹으려면 기본 2만원인 퀘사디아ㅠ 하지만 집에서 전자렌지로 초간단하면서도 더 맛나게 만들어먹을 수 있어요^.^",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "43"
+    },
+            "totalTime": "PT5M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["또띠아 2장","참치캔 1개","치즈 취향껏","양파 0.5개","청양고추 1개","토마토소스 4T"],    "recipeInstructions": [{"@type":"HowToStep","text":"참치캔, 햄, 양파, 치즈(취향대로), 토마토소스, 또띠아를 준비하고, 추가로 느끼함을 잡아주고 매콤함을 더해주기위해 청양고추도 준비합니다."},{"@type":"HowToStep","text":"또띠아 한쪽면에 토마토소스를 2T덜어 바르고 캔참치의 기름기를 최소화하여 올려줍니다"},{"@type":"HowToStep","text":"그 위로 양파올리고"},{"@type":"HowToStep","text":"햄올리고"},{"@type":"HowToStep","text":"청양고추는 잘게썰어 고루 분포시켜 올리고 본인이 좋아하는 재료 더 추가합니다."},{"@type":"HowToStep","text":"다른 또띠아의 한면에도 토마토소스를 2T 발라줍니다"},{"@type":"HowToStep","text":"기존에 재료쌓아올린 또띠아에 치즈를 듬뿍올리고"},{"@type":"HowToStep","text":"덮어줍니다 그리고 이대로 전자렌지에서 2분 돌려주면"},{"@type":"HowToStep","text":"끝"},{"@type":"HowToStep","text":"치즈가 녹아있죠"},{"@type":"HowToStep","text":"먹기좋게 잘라주고"},{"@type":"HowToStep","text":"하나씩"},{"@type":"HowToStep","text":"집어들어"},{"@type":"HowToStep","text":"먹으면 기가 막히는 맛입니다♥"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "♥[신혼밥상] 5분 반찬 상추겉절이",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/03/26/6d6107810146e718ca42320cef0833c01_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2020/03/26/6d6107810146e718ca42320cef0833c01.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "행복한윤블리네"
+    },
+    "datePublished": "2020-03-27T12:10:06+09:00",
+    "description": "봄철 입맛 돌게 만드는 상추겉절이~ 한국식 샐러드 ㅋㅋ 밥도 좋아요. 고기에도 잘 어울리는 반찬! 초스피드로 뚝딱 즐겨보세요~",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "42"
+    },
+            "totalTime": "PT5M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["상추 20장","고춧가루 2큰술","다진마늘 1큰술","간장 1큰술","설탕 1스푼","식초 2큰술","참기름 1큰술","통깨 1큰술"],    "recipeInstructions": [{"@type":"HowToStep","text":"상추를 썰거나 손으로 뜯어주세요."},{"@type":"HowToStep","text":"큰 볼에 고춧가루2, 다진마늘 1, 간장 1, 설탕1, 식초2, 참기름1, 통깨1을 넣고 섞어주세요."},{"@type":"HowToStep","text":"상추를 한쪽에 몰아준 다음 상추를 조금씩 잡아서 양념장을 조금씩 무침 반복! 그래야만 간 조절에 실패 없음!"},{"@type":"HowToStep","text":"통깨 팍팍! 손목에 힘을 빼고 아주 살살살 버무려 주면 완성!"},{"@type":"HowToStep","text":"샐러드처럼 드셔도 좋고, 밥 넣고 상추 넣고 참기름 쪼르륵해서 비빔밥해서 드시면 이 또한 별미 중의 별미!"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "♥[신혼밥상] 10분 반찬! 메추리알조림",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2019/07/24/c3e2a76338282c7a32cab50b4c5437b21_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2019/07/24/c3e2a76338282c7a32cab50b4c5437b21.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "행복한윤블리네"
+    },
+    "datePublished": "2019-07-24T23:27:28+09:00",
+    "description": "아이반찬 걱정 뚝! 일주일간 반찬 걱정 그만! 달달소스에 빠진 메추리알 10분이면 뚝딱 반찬을 소개합니다. ",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "114"
+    },
+            "totalTime": "PT15M",
+            "recipeYield": "4 servings",
+        "recipeIngredient": ["메추리알 270g","스팸 1/2캔","청양고추 1~2개","올리고당 1바퀴","다진마늘 1커피스푼","참기름 1스푼","통깨 적당히","간장 6스푼","설탕 1.5스푼","맛술 2스푼","물 1종이컵"],    "recipeInstructions": [{"@type":"HowToStep","text":"메추리알과 스팸하나면 반찬걱정 끝!"},{"@type":"HowToStep","text":"스팸 반캔 또는 1캔 네모네모 잘라주세요."},{"@type":"HowToStep","text":"간장 6스푼을 넣어주세요."},{"@type":"HowToStep","text":"설탕 1스푼 반을 넣어주세요."},{"@type":"HowToStep","text":"물은 종이컵1잔 분량 붓기."},{"@type":"HowToStep","text":"다진마늘 커피스푼1 매콤한 맛을 좋아한다면  청양고추 또는 꽈리고추 추가 아이를 위한 반찬이라면  이 단계 생략!"},{"@type":"HowToStep","text":"7분~8분 동안 졸여주세요."},{"@type":"HowToStep","text":"가스불 끄기 직전 올리고당 한바퀴 빙 둘러주시고 참기름 1스푼, 통깨 뿌리면 초간단 반찬 완성!"}]}
+,,
+{
+    "@context": "http://schema.org/",
+    "@type": "Recipe",
+    "name": "만물상에 소개된 불 없이 5분만에 만든 오징어채 황금 레시피!",
+    "image": [
+        "https://recipe1.ezmember.co.kr/cache/recipe/2018/08/25/16869b3c1cee4e82141bb3abe90d0be21_f.jpg",
+        "https://recipe1.ezmember.co.kr/cache/recipe/2018/08/25/16869b3c1cee4e82141bb3abe90d0be21.jpg"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "뽀유TV"
+    },
+    "datePublished": "2018-08-25T17:46:42+09:00",
+    "description": "만물상에 소개된 오징어채 레시피인데요!밑반찬으로 참 좋은 오징어채를 불 없이 전자렌지로 5분만에 뚝딱 만들어 봐요!",
+        "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "51"
+    },
+            "totalTime": "PT5M",
+            "recipeYield": "2 servings",
+        "recipeIngredient": ["진미채 1줌(크게)","고추장 1T","고추가루 1T","간장 1T","다진마늘 1T","깨 1T","참기름 1T","올리고당 2T","마요네즈 0.5T","물 2T"],    "recipeInstructions": [{"@type":"HowToStep","text":"진미채 한줌을 먹기 좋게 잘라 주시구요. 촉촉한 오징어채를 위해 양념 만드는 동안만 뜨거운 물에 담궈 불려 줍니다."},{"@type":"HowToStep","text":"고추장1T+고추가루1T+간장1T+다진마늘1T+깨1T+참기름1T+올리고당2T+마요네즈0.5T+물2T를 넣고 잘 섞어 줍니다"},{"@type":"HowToStep","text":"오징어채는 물기를 짜지 마시고 그대로 체에 건져주시구요.그래야 촉촉한 오징어채가 되요"},{"@type":"HowToStep","text":"만들어 놓은 양념과 잘 섞어 줍니다."},{"@type":"HowToStep","text":"양념이 잘 섞이면 비닐랩을 씌워주신 후 젓가락으로 구멍 2-3군데 내주시구요!전자레인지에 2분 돌려 주시면 끝!"},{"@type":"HowToStep","text":"만물상에 소개된 불 없이 5분만에 만든 오징어채 완성입니다! 한입 먹어보니 촉촉하면서도 매콤달콤하니 간이 딱 맞고 맛있어요!요리 초보자분들도 쉽게 만들수 있어서 좋아요!"}]}
+,,
