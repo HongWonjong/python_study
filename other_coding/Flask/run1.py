@@ -27,6 +27,14 @@ def format_datetime(value):
     return value.strftime("%Y-%m-%d %H:%M:%S")
 
 
+@app.route("/list")
+def lists():
+    page = request.args.get("page", default=1, type=int)
+    board = mongo.db.board
+    datas = board.find({})
+    return render_template("list.html", datas=datas)
+
+
 @app.route("/view/<idx>")
 def board_view(idx):
     # idx = request.args.get("idx")
