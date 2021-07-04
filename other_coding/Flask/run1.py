@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 from flask import abort
 from flask import redirect
 from flask import url_for
+from flask import flash
 import time
 import math
 
@@ -138,6 +139,25 @@ def board_write():
         return redirect(url_for("board_view", idx=x.inserted_id))
     else:
         return render_template("write.html")
+
+
+@app.route("/join", methods=["GET", "POST"])
+def member_join():
+    if request.method == "POST":
+        name = request.form.get("name", type=str)
+        email = request.form.get("email", type=str)
+        pass1 = request.form.get("pass", type=str)
+        pass2 = request.form.get("pass2", type=str)
+        if name is None or email is None or pass1 is None or pass2 is None:
+            flash("입력되지 않은 값이 있습니다.")
+            return render_template("join.html")
+        
+        if pass1 != pass2:
+            flash("비밀번호가 일치하지 않습니다.")
+            return render_template("join.html")
+        return ""
+    else:
+        return render_template("join.html")
 
 
 if __name__ == "__main__":
