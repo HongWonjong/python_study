@@ -14,6 +14,7 @@ import math
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
+app.secret_key = "ABCD"
 mongo = PyMongo(app)
 
 
@@ -148,16 +149,42 @@ def member_join():
         email = request.form.get("email", type=str)
         pass1 = request.form.get("pass", type=str)
         pass2 = request.form.get("pass2", type=str)
-        if name is None or email is None or pass1 is None or pass2 is None:
+        if name != True or email != True or pass1 != True or pass2 != True:
             flash("입력되지 않은 값이 있습니다.")
             return render_template("join.html")
         
         if pass1 != pass2:
             flash("비밀번호가 일치하지 않습니다.")
             return render_template("join.html")
+        members = mongo.db.members
+        cnt = members.find({"email": email}).count()
+        if cnt != 0:
+            flash("중복된 이메일 주소입니다.")
+            return render_template("join.html")
+        current_utc_time = round(datetime.utcnow().timestamp() * 1000)
+        post = {
+            "name": name,
+            "email": email,
+            "pass": pass1,
+            "joindate": current_utc_time,
+            "logintime": "",
+            "logincount": 0,
+        }
+
+        members.insert_one(post)
         return ""
     else:
         return render_template("join.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def member_login():
+    if request.method == "POST":
+        email = request.form.get("email": email)
+        return ""
+    else:
+        return render_template("login.html")
+
 
 
 if __name__ == "__main__":
