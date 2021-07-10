@@ -3,11 +3,14 @@ from flask import request
 from flask import render_template
 from flask_pymongo import PyMongo
 from datetime import datetime
+from datetime import timedelta
 from bson.objectid import ObjectId
 from flask import abort
 from flask import redirect
 from flask import url_for
 from flask import flash
+from flask import session
+from functools import wraps
 import time
 import math
 
@@ -15,8 +18,15 @@ import math
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
 app.secret_key = "ABCD"
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 mongo = PyMongo(app)
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args **kwargs):
+        if session.get("id") is None or session.get("id") == "":
+            return redirect(url_for("member_login", next_url=request.url))
+        return f()
 
 @app.template_filter("formatdatetime")
 def format_datetime(value):
@@ -75,7 +85,6 @@ def lists():
     # 블럭의 끝 위치
     block_last = math.ceil(block_start + (block_size - 1))
 
-
     return render_template(
             "list.html",
             datas=datas,
@@ -119,6 +128,8 @@ def board_view(idx):
 
 @app.route("/write", methods=["GET", "POST"])
 def board_write():
+    if session.get("id") is None:
+        return redirect(url_for("member_login"))
     if request.method == "POST":
         name = request.form.get("name")
         title = request.form.get("title")
@@ -149,10 +160,9 @@ def member_join():
         email = request.form.get("email", type=str)
         pass1 = request.form.get("pass", type=str)
         pass2 = request.form.get("pass2", type=str)
-        if name != True or email != True or pass1 != True or pass2 != True:
+        if name is False or email is False or pass1 is False or pass2 is False:
             flash("입력되지 않은 값이 있습니다.")
-            return render_template("join.html")
-        
+            return render_template("join.html")      
         if pass1 != pass2:
             flash("비밀번호가 일치하지 않습니다.")
             return render_template("join.html")
@@ -172,7 +182,8 @@ def member_join():
         }
 
         members.insert_one(post)
-        return ""
+        flash("회원가입이 완료되었습니다.")
+        return redirect(url_for("lists"))
     else:
         return render_template("join.html")
 
@@ -180,11 +191,26 @@ def member_join():
 @app.route("/login", methods=["GET", "POST"])
 def member_login():
     if request.method == "POST":
-        email = request.form.get("email": email)
-        return ""
+        email = request.form.get("email")
+        password = request.form.get("pass")  
+        members = mongo.db.members
+        data = members.find_one({"email": email})
+
+        if data is None:
+            flash("회원 정보가 없습니다.")
+            return redirect(url_for("member_login"))
+        else:
+            if data.get("pass") == password:
+                session["email"] = email
+                session["name"] = data.get("name")
+                session["id"] = str(data.get("_id"))
+                session.permanent = True
+                return redirect(url_for("lists"))
+            else:
+                flash("비밀번호가 일치하지 않습니다.")
+                return redirect(url_for("member_login"))
     else:
         return render_template("login.html")
-
 
 
 if __name__ == "__main__":
