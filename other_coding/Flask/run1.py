@@ -1,26 +1,3 @@
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask_pymongo import PyMongo
-from datetime import datetime
-from datetime import timedelta
-from bson.objectid import ObjectId
-from flask import abort
-from flask import redirect
-from flask import url_for
-from flask import flash
-from flask import session
-from functools import wraps
-import time
-import math
-
-
-app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
-app.secret_key = "ABCD"
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
-mongo = PyMongo(app)
-
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -28,6 +5,7 @@ def login_required(f):
             return redirect(url_for("member_login", next_url=request.url))
         return f(*args, **kwargs)
     return decorated_function
+
 
 @app.template_filter("formatdatetime")
 def format_datetime(value):
@@ -49,7 +27,7 @@ def lists():
     limit = request.args.get("limit", 10, type=int)
 
     search = request.args.get("search", -1, type=int)
-    keyword = request.args.get("keyword", type=str)
+    keyword = request.args.get("keyword", "", type=str)
 
     # 최종적으로 완성된 쿼리를 만들 변수
     query = {}
@@ -72,7 +50,7 @@ def lists():
 
     print(query)
     board = mongo.db.board
-    datas = board.find(query).skip((page-1) * limit).limit(limit)
+    datas = board.find(query).skip((page-1) * limit).limit(limit).sort("pubdate", -1)
     tot_count = board.find(query).count()
     # 게시물의 총 개수를 구할 수 있음
     # 마지막 페이지의 수를 구함. 올림을 해 주어야 함.
@@ -99,7 +77,7 @@ def lists():
 
 
 @app.route("/view/<idx>")
-@login_required 
+@login_required
 def board_view(idx):
     # idx = request.args.get("idx")
     if idx is not None:
@@ -122,7 +100,7 @@ def board_view(idx):
 
             return render_template(
                 "view.html",
-                result=result,  
+                result=result,
                 page=page,
                 search=search,
                 keyword=keyword)
@@ -140,7 +118,7 @@ def board_write():
         contents = request.form.get("contents")
         print(name, title, contents)
 
-        current_utc_time = round(datetime.utcnow().timestamp() * 1000) 
+        current_utc_time = round(datetime.utcnow().timestamp() * 1000)
         board = mongo.db.board
         post = {
             "name": name,
@@ -167,7 +145,7 @@ def member_join():
         pass2 = request.form.get("pass2", type=str)
         if name is False or email is False or pass1 is False or pass2 is False:
             flash("입력되지 않은 값이 있습니다.")
-            return render_template("join.html")      
+            return render_template("join.html")
         if pass1 != pass2:
             flash("비밀번호가 일치하지 않습니다.")
             return render_template("join.html")
@@ -197,7 +175,7 @@ def member_join():
 def member_login():
     if request.method == "POST":
         email = request.form.get("email")
-        password = request.form.get("pass")  
+        password = request.form.get("pass")
         members = mongo.db.members
         data = members.find_one({"email": email})
         next_url = request.form.get("next_url")
@@ -245,13 +223,31 @@ def board_edit(idx):
         contents = request.form.get("contents")
 
         board = mongo.db.board
-        
-    return ""
+        data = board.find_one({"_id": ObjectId(idx)})
+        if session.get("id") == data.get("writer_id"):
+            board.update_one({"_id": ObjectId(idx)}, {
+                "$set": {
+                    "title": title,
+                    "contents": contents,
+                }
+            })
+            flash("수정되었습니다.")
+            return redirect(url_for("board_view", idx=idx))
+        else:
+            flash("글 수정 권한이 없습니다.")
+            return redirect(url_for("lists"))
 
 
 @app.route("/delete/<idx>")
 def board_delete(idx):
-    return ""
+    board = mongo.db.board
+    data = board.find_one({"_id": ObjectId(idx)})
+    if data.get("writer_id") == session.get("id"):
+        board.delete_one({"_id": ObjectId(idx)})
+        flash("삭제되었습니다.")
+    else:
+        flash("삭제 권한이 없습니다.")
+    return redirect(url_for("lists"))
 
 
 if __name__ == "__main__":
