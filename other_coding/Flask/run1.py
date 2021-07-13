@@ -245,8 +245,19 @@ def board_edit(idx):
         contents = request.form.get("contents")
 
         board = mongo.db.board
-        
-    return ""
+        data = board.find_one({"_id": ObjectId(idx)})
+        if session.get("id") == data.get("writer_id"):
+            board.update_one({"_id": ObjectId(idx)}, {
+                "$set": {
+                    "title": title,
+                    "contents": contents,
+                }
+            })
+            flash("수정되었습니다.")
+            return redirect(url_for("board_view", idx=idx))
+        else:
+            flash("글 수정 권한이 없습니다.")
+            return redirect(url_for("lists"))
 
 
 @app.route("/delete/<idx>")
