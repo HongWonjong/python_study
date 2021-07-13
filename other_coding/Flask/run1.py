@@ -51,7 +51,7 @@ def lists():
     limit = request.args.get("limit", 10, type=int)
 
     search = request.args.get("search", -1, type=int)
-    keyword = request.args.get("keyword", type=str)
+    keyword = request.args.get("keyword", "", type=str)
 
     # 최종적으로 완성된 쿼리를 만들 변수
     query = {}
@@ -74,7 +74,7 @@ def lists():
 
     print(query)
     board = mongo.db.board
-    datas = board.find(query).skip((page-1) * limit).limit(limit)
+    datas = board.find(query).skip((page-1) * limit).limit(limit).sort("pubdate", -1)
     tot_count = board.find(query).count()
     # 게시물의 총 개수를 구할 수 있음
     # 마지막 페이지의 수를 구함. 올림을 해 주어야 함.
@@ -264,7 +264,14 @@ def board_edit(idx):
 
 @app.route("/delete/<idx>")
 def board_delete(idx):
-    return ""
+    board = mongo.db.board
+    data = board.find_one({"_id": ObjectId(idx)})
+    if data.get("writer_id") == session.get("id"):
+        board.delete_one({"_id": ObjectId(idx)})
+        flash("삭제되었습니다.")
+    else:
+        flash("삭제 권한이 없습니다.")
+    return redirect(url_for("lists"))
 
 
 if __name__ == "__main__":
