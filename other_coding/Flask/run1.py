@@ -21,6 +21,7 @@ app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 mongo = PyMongo(app)
 
+
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -99,7 +100,7 @@ def lists():
 
 
 @app.route("/view/<idx>")
-@login_required 
+@login_required
 def board_view(idx):
     # idx = request.args.get("idx")
     if idx is not None:
@@ -122,7 +123,7 @@ def board_view(idx):
 
             return render_template(
                 "view.html",
-                result=result,  
+                result=result,
                 page=page,
                 search=search,
                 keyword=keyword)
@@ -140,7 +141,7 @@ def board_write():
         contents = request.form.get("contents")
         print(name, title, contents)
 
-        current_utc_time = round(datetime.utcnow().timestamp() * 1000) 
+        current_utc_time = round(datetime.utcnow().timestamp() * 1000)
         board = mongo.db.board
         post = {
             "name": name,
@@ -167,7 +168,7 @@ def member_join():
         pass2 = request.form.get("pass2", type=str)
         if name is False or email is False or pass1 is False or pass2 is False:
             flash("입력되지 않은 값이 있습니다.")
-            return render_template("join.html")      
+            return render_template("join.html")
         if pass1 != pass2:
             flash("비밀번호가 일치하지 않습니다.")
             return render_template("join.html")
@@ -197,7 +198,7 @@ def member_join():
 def member_login():
     if request.method == "POST":
         email = request.form.get("email")
-        password = request.form.get("pass")  
+        password = request.form.get("pass")
         members = mongo.db.members
         data = members.find_one({"email": email})
         next_url = request.form.get("next_url")
