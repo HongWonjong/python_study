@@ -23,10 +23,11 @@ mongo = PyMongo(app)
 
 def login_required(f):
     @wraps(f)
-    def decorated_function(*args **kwargs):
+    def decorated_function(*args, **kwargs):
         if session.get("id") is None or session.get("id") == "":
             return redirect(url_for("member_login", next_url=request.url))
-        return f()
+        return f(*args, **kwargs)
+    return decorated_function
 
 @app.template_filter("formatdatetime")
 def format_datetime(value):
@@ -98,6 +99,7 @@ def lists():
 
 
 @app.route("/view/<idx>")
+@login_required 
 def board_view(idx):
     # idx = request.args.get("idx")
     if idx is not None:
@@ -114,7 +116,8 @@ def board_view(idx):
                 "title": data.get("title"),
                 "contents": data.get("contents"),
                 "pubdate": data.get("pubdate"),
-                "view": data.get("view")
+                "view": data.get("view"),
+                "writer_id": data.get("writer_id", "")
             }
 
             return render_template(
@@ -127,6 +130,7 @@ def board_view(idx):
 
 
 @app.route("/write", methods=["GET", "POST"])
+@login_required
 def board_write():
     if session.get("id") is None:
         return redirect(url_for("member_login"))
@@ -143,6 +147,7 @@ def board_write():
             "title": title,
             "contents": contents,
             "pubdate": current_utc_time,
+            "writer_id": session.get("id"),
             "view": 0
         }
 
@@ -195,6 +200,7 @@ def member_login():
         password = request.form.get("pass")  
         members = mongo.db.members
         data = members.find_one({"email": email})
+        next_url = request.form.get("next_url")
 
         if data is None:
             flash("회원 정보가 없습니다.")
@@ -205,12 +211,47 @@ def member_login():
                 session["name"] = data.get("name")
                 session["id"] = str(data.get("_id"))
                 session.permanent = True
-                return redirect(url_for("lists"))
+                if next_url is not None:
+                    return redirect(next_url)
+                else:
+                    return redirect(url_for("lists"))
             else:
                 flash("비밀번호가 일치하지 않습니다.")
                 return redirect(url_for("member_login"))
     else:
-        return render_template("login.html")
+        next_url = request.args.get("next_url", type=str)
+        if next_url is not None:
+            return render_template("login.html", next_url=next_url)
+        else:
+            return render_template("login.html")
+
+
+@app.route("/edit/<idx>", methods=["GET", "POST"])
+def board_edit(idx):
+    if request.method == "GET":
+        board = mongo.db.board
+        data = board.find_one({"_id": ObjectId(idx)})
+        if data is None:
+            flash("해당 게시물이 존재하지 않습니다.")
+            return redirect(url_for("lists"))
+        else:
+            if session.get("id") == data.get("writer_id"):
+                return render_template("edit.html", data=data)
+            else:
+                flash("글 수정 권한이 없습니다.")
+                return redirect(url_for("lists"))
+    else:
+        title = request.form.get("title")
+        contents = request.form.get("contents")
+
+        board = mongo.db.board
+        
+    return ""
+
+
+@app.route("/delete/<idx>")
+def board_delete(idx):
+    return ""
 
 
 if __name__ == "__main__":
