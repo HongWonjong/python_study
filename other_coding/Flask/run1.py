@@ -30,6 +30,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
 @app.template_filter("formatdatetime")
 def format_datetime(value):
     if value is None:
