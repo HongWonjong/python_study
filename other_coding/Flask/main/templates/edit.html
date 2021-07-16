@@ -1,12 +1,8 @@
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <script>
-            alert("{{messages[-1]}}");
-        </script>
-    {% endif %}
-{% endwith %}
+{% extends "main.html" %}
+
+{% block contents %}
 <table>
-    <form name="form" method="POST" action="/edit/{{data._id}}">
+    <form name="form" method="POST" action="{{url_for('board.board_edit', idx=data._id)}}">
     <tr>
         <td>작성자</td>
         <td> <input type="text" name="name" value="{{session['name']}}"></td>
@@ -24,3 +20,4 @@
     </tr>
     </form> 
 </table>
+{% endblock %}

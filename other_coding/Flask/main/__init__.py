@@ -20,3 +20,11 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
 app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 mongo = PyMongo(app)
+
+from .common import login_required
+from .filter import format_datetime
+from . import board
+from . import member
+
+app.register_blueprint(board.blueprint)
+app.register_blueprint(member.blueprint)
