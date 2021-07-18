@@ -72,7 +72,10 @@ def member_login():
 
 @blueprint.route("/logout")
 def member_logout():
-    del session["name"]
-    del session["id"]
-    del session["email"]
+    try:
+        del session["name"]
+        del session["id"]
+        del session["email"]
+    except:
+        pass
     return redirect(url_for("member.member_login"))
