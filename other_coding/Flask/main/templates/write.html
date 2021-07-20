@@ -25,10 +25,10 @@
     });
 
     function uploadImage(image){
-        var data = FormData();
+        var data = new FormData();
         data.append("image", image);
         $.ajax({
-            url: "{{'board.upload_image'}}",
+            url: "{{url_for('board.upload_image')}}",
             cache: false, 
             contentType: false,
             processData: false,

@@ -1,4 +1,4 @@
-from main import *
+from main import 
 from string import digits, ascii_uppercase, ascii_lowercase
 import random
 

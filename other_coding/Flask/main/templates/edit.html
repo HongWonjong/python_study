@@ -25,7 +25,7 @@
     });
 
     function uploadImage(image){
-        var data = FormData();
+        var data = new FormData();
         data.append("image", image);
         $.ajax({
             url: "{{'board.upload_image'}}",
