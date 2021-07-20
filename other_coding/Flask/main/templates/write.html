@@ -1,17 +1,61 @@
 {% extends "main.html" %}
 
 {% block contents %}
+
+<script>
+    $(document).ready(function() {
+        $("#summernote").summernote({
+            height: 300,
+            minHeight: null,
+            maxHeight: null,
+            lang: "Ko-KR",
+            popover: {
+                image: [],
+                link: [],
+                air: []
+            },
+            callbacks: {
+                onImageUpload: function(image) {
+                    for(var i = 0; i < image.length ; i++) {
+                        uploadImage(image[i]);
+                    }
+                }
+            }
+        });
+    });
+
+    function uploadImage(image){
+        var data = FormData();
+        data.append("image", image);
+        $.ajax({
+            url: "{{'board.upload_image'}}",
+            cache: false, 
+            contentType: false,
+            processData: false,
+            data: data,
+            type: "post",
+            success: function(url) {
+                var image= $("<img>").attr("src", url).css('max-width', "900px");
+                $("#summernote").summernote("insertNode", image[0]); 
+            },
+            error: function(data) {
+                console.log(data);
+                alert(data);
+            }
+        })
+    }
+</script>
 <script>
     function checkForm() {
         if($.trim($("#title").val()) == "") {
-            alert("제목을 입력하세요.")
+            alert("제목을 입력하세요.");
             $("#title").focus();
             return false;
         }
     
-        if($.trim($("#contents").val()) == "") {
-            alert("내용을 입력하세요.")
-            $("#contents").focus();
+        if($.trim($("#summernote").val()) == "") {
+            alert("내용을 입력하세요.");
+            $("#summernote").focus();
             return false;
         }
     return true;
@@ -27,11 +71,6 @@
     <div class="form-group">
         <label for="title">제목</label>
         <input class="form-control" id="title" type="text" name="title" placeholder="제목을 입력하세요.">
-    </div>
-    
-    <div class="form-group">
-        <label for="contents">내용</label>
-        <textarea rows="8" class="form-control" id="contents" name="contents" placeholder="내용을 입력하세요."></textarea>
     </div>
 
     <div class="form-group">

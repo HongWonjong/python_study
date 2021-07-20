@@ -1,11 +1,27 @@
 from main import *
 from flask import Blueprint
-
+from flask import send_from_directory
 
 blueprint = Blueprint("board", __name__, url_prefix="/board")
+
+@blueprint.route("/upload_image", method=["POST"])
+def upload_image():
+    if request.method =="POST":
+        file = request.files["image"]
+        if file and allowed_file(file.filename):
+            filename="{}.jpg".format(rand_generator())
+            savefilepath = os.path.join(app.config["BOARD_IMAGE_PATH"], filename)
+            file.save(savefilepath)
+            return url_for("board.board_images", filename=filename)
+
+@blueprint.route("/images/<filename>")
+def board_images(filename):
+    return send_from_directory(app.config["BOARD_IMAGE_PATH"], filename)
+
+
 @blueprint.route("/list")
 def lists():
-    # 페이지 값(값이 없는 경우 기본 값은 1)
+    # 페이지 값(값이 없는 경우 기본 값은 1) 
     page = request.args.get("page", default=1, type=int)
     # 한 페이지 당 몇 개의 게시물을 출력할지 정해야 함.
     limit = request.args.get("limit", 10, type=int)
