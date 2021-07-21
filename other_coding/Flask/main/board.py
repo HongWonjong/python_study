@@ -4,20 +4,32 @@ from flask import send_from_directory
 
 blueprint = Blueprint("board", __name__, url_prefix="/board")
 
+def board_delete_attach_file(filename):
+    abs_path = os.path.join(app.config["BOARD_ATTACH_FILE_PATH", filename])
+    if os.path.exists(abs_path):
+        os.remove(abs_path)
+        return True
+    else:
+        return False
+
 @blueprint.route("/upload_image", methods=["POST"])
 def upload_image():
     if request.method == "POST":
         file = request.files["image"]
+        print(file)
         if file and allowed_file(file.filename):
             filename="{}.jpg".format(rand_generator())
             savefilepath = os.path.join(app.config["BOARD_IMAGE_PATH"], filename)
             file.save(savefilepath)
             return url_for("board.board_images", filename=filename)
-    return ""
 
 @blueprint.route("/images/<filename>")
 def board_images(filename):
     return send_from_directory(app.config["BOARD_IMAGE_PATH"], filename)
+
+@blueprint.route("/files/<filename>")
+def board_files(filename): 
+    return send_from_directory(app.config["BOARD_ATTACH_FILE_PATH"], filename, as_attachment = True)
 
 
 @blueprint.route("/list")
@@ -96,7 +108,8 @@ def board_view(idx):
                 "contents": data.get("contents"),
                 "pubdate": data.get("pubdate"),
                 "view": data.get("view"),
-                "writer_id": data.get("writer_id", "")
+                "writer_id": data.get("writer_id", ""),
+                "attachfile": data.get("attachfile", "")
             }
 
             return render_template(
@@ -115,11 +128,17 @@ def board_write():
     if session.get("id") is None:
         return redirect(url_for("member.member_login"))
     if request.method == "POST":
+        filename = None
+        if "attachfile" in request.files:
+            file = request.files["attachfile"]
+            if file and allowed_file(file.filename):
+                filename = check_filename(file.filename)
+                file.save(os.path.join(app.config['BOARD_ATTACH_FILE_PATH'], filename))
+
         name = request.form.get("name")
         title = request.form.get("title")
         contents = request.form.get("contents")
-        print(name, title, contents)
-
+        request.files
         current_utc_time = round(datetime.utcnow().timestamp() * 1000)
         board = mongo.db.board
         post = {
@@ -130,6 +149,9 @@ def board_write():
             "writer_id": session.get("id"),
             "view": 0
         }
+
+        if filename is not None:
+            post["attachfile"] = filename
 
         x = board.insert_one(post)
         print(x.inserted_id)

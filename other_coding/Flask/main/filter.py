@@ -1,4 +1,4 @@
-from main import *
+from main import app, datetime, time
 
 
 @app.template_filter("formatdatetime")

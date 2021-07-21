@@ -22,15 +22,19 @@ app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 mongo = PyMongo(app)
 
 BOARD_IMAGE_PATH = "C:\\git_sample\\other_coding\\Flask\\images"
-ALLOWED_EXTENSIONS = set(["txt", "pdf", "png", "jpg", "jpeg", "gif"])
+BOARD_ATTACH_FILE_PATH = "C:\\git_sample\\other_coding\\Flask\\uploads"
+ALLOWED_EXTENSIONS = set(["txt", "pdf", "png", "jpg", "jpeg", "gif", "jfif"])
 
 app.config["BOARD_IMAGE_PATH"] = BOARD_IMAGE_PATH
+app.config["BOARD_ATTACH_FILE_PATH"] = BOARD_ATTACH_FILE_PATH
 app.config["MAX_CONTENT_LENGTH"] = 15 * 1024 * 1024 
 
 if not os.path.exists(app.config["BOARD_IMAGE_PATH"]):
     os.mkdir(app.config["BOARD_IMAGE_PATH"])
+if not os.path.exists(app.config["BOARD_ATTACH_FILE_PATH"]):
+    os.mkdir(app.config["BOARD_ATTACH_FILE_PATH"])
 
-from .common import login_required, allowed_file, rand_generator
+from .common import login_required, allowed_file, rand_generator, check_filename
 from .filter import format_datetime
 from . import board
 from . import member

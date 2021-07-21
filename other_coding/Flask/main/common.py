@@ -1,6 +1,14 @@
-from main import 
+from main import ALLOWED_EXTENSIONS, session, url_for, redirect, wraps, request
 from string import digits, ascii_uppercase, ascii_lowercase
-import random
+import random, re, os
+
+def check_filename(filename):
+    reg = re.compile("[^A-Za-z0-9_.가-힝-]")
+    for s in os.path.sep, os.path.altsep:
+        if s:
+            filename = filename.replace(s, " ")
+            filename = str(reg.sub('', '_'.join(filename.split()))).strip("._")
+    return filename
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1] in ALLOWED_EXTENSIONS
