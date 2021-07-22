@@ -46,7 +46,7 @@
     }
 </script>
 
-<form name="form" method="POST" action="{{url_for('board.board_edit', idx=data._id)}}">
+<form name="form" method="POST" action="{{url_for('board.board_edit', idx=data._id)}}" enctype="multipart/form-data">
     <div class="form-group">
         <label for="name">작성자</label>
         <input class="form-control" type="text" name="name" value="{{session['name']}}" readonly>

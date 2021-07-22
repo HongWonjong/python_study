@@ -1,6 +1,13 @@
 from main import ALLOWED_EXTENSIONS, session, url_for, redirect, wraps, request
 from string import digits, ascii_uppercase, ascii_lowercase
 import random, re, os
+from werkzeug.security import generate_password_hash, check_password_hash
+
+def hash_password(password):
+    return generate_password_hash(password)
+
+def check_password(hashed_password, user_password):
+    return check_password_hash(hashed_password, user_password)
 
 def check_filename(filename):
     reg = re.compile("[^A-Za-z0-9_.가-힝-]")

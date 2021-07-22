@@ -5,7 +5,7 @@ from flask import send_from_directory
 blueprint = Blueprint("board", __name__, url_prefix="/board")
 
 def board_delete_attach_file(filename):
-    abs_path = os.path.join(app.config["BOARD_ATTACH_FILE_PATH", filename])
+    abs_path = os.path.join(app.config["BOARD_ATTACH_FILE_PATH"], filename)
     if os.path.exists(abs_path):
         os.remove(abs_path)
         return True
@@ -177,14 +177,33 @@ def board_edit(idx):
     else:
         title = request.form.get("title")
         contents = request.form.get("contents")
+        deleteoldfile = request.form.get("deleteoldfile", "")
 
         board = mongo.db.board
         data = board.find_one({"_id": ObjectId(idx)})
         if session.get("id") == data.get("writer_id"):
+            filename = None
+            if "attachfile" in request.files:
+                file = request.files["attachfile"]
+                if file and allowed_file(file.filename):
+                    filename = check_filename(file.filename)
+                    file.save(os.path.join(app.config["BOARD_ATTACH_FILE_PATH"], filename))
+
+                    if data.get("attachfile"):
+                        board_delete_attach_file(data.get("attachfile"))
+            else:  
+                if deleteoldfile == "on":
+                    filename = None
+                    if data.get("attachfile"):
+                        board_delete_attach_file(data.get("attachfile"))
+                else: 
+                    filename = data.get("attachfile")
+
             board.update_one({"_id": ObjectId(idx)}, {
                 "$set": {
                     "title": title,
                     "contents": contents,
+                    "attachfile": filename
                 }
             })
             flash("수정되었습니다.")
