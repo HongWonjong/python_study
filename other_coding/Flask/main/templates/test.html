@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block contents %}
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open("get", "{{url_for('board.test')}}")
+xhr.onreadystatechange = function() {
+    if(xhr.status == 200 && xhr.readyState == 4) {
+        console.log(xhr.responseText);
+    }
+}
+</script>
+{% endblock %}
