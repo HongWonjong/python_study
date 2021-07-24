@@ -10,11 +10,8 @@ from flask import redirect
 from flask import url_for
 from flask import flash
 from flask import session
-<<<<<<< HEAD
 from flask import jsonify
-=======
 from flask_wtf.csrf import CSRFProtect
->>>>>>> c97e7099a81c539de0b027ea2cf02a3a99866e95
 from functools import wraps
 import time
 import math

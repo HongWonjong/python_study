@@ -12,12 +12,12 @@ def board_delete_attach_file(filename):
     else:
         return False
 
-<<<<<<< HEAD
 @blueprint.route("/comment_list/<root_idx>", methods=["GET"])
 @login_required
 def comment_list(root_idx):
     comment = mongo.db.comment
-    comments = comment.find({"root_idx": str("root_idx")}).sort([("pubdate", -1)])
+    comments = comment.find({"root_idx": str(root_idx)}).sort([("pubdate", -1)])
+
     comment_list = []
     for c in comments:
         comment_list.append({
@@ -29,7 +29,7 @@ def comment_list(root_idx):
             "pubdate": format_datetime(c.get("pubdate")),
         })
     return jsonify(error="success", lists=comment_list)
-=======
+
 @blueprint.route("/ajax")
 def ajaxtest():
     return render_template("test.html")
@@ -62,7 +62,6 @@ def comment_write():
         return redirect(url_for("board.board_view", idx=root_idx))
 
 
->>>>>>> c97e7099a81c539de0b027ea2cf02a3a99866e95
 @blueprint.route("/upload_image", methods=["POST"])
 def upload_image():
     if request.method == "POST":

@@ -1,6 +1,40 @@
 {% extends "main.html" %}
 
 {% block contents %}
+
+<script>
+    function get_comment_list() {
+        $.ajax({
+            url: "{{url_for('board.comment_list', root_idx=result.id)}}",
+            type: "GET",
+            cache: false,
+            dataType: "json",
+            success: function(data) {
+                c = data.lists;
+                html = "";
+                if (c.length > 0) {
+                    for(var i = 0; i < c.length; i++) {
+                            html += <div>
+                            <table class = "table">
+                                <tr>
+                                    <td width="100"><h6>{{c.name}}</h6></td>
+                                    <td>{{c.comment}}</td>
+                                    <td class="text-right" width="200">{{c.pubdate | formatdatetime}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    }
+                }
+            },
+            error: function(request, status, error) {
+                var msg = "Error : " + request.status + "<br>";
+                msg += "내용: " + request.responseText + "<br>" + error;
+                console.log(msg);
+            }
+        })
+    }
+</script>
+
 <table class="table table-bordered">
     <tbody>
         <tr>
@@ -44,6 +78,7 @@
     </div>
 </form>
 
+<div id="commentList"></div>
 {% if comments.count() > 0 %}
     {% for c in comments %}
         <div>
