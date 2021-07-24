@@ -10,13 +10,18 @@ from flask import redirect
 from flask import url_for
 from flask import flash
 from flask import session
+<<<<<<< HEAD
 from flask import jsonify
+=======
+from flask_wtf.csrf import CSRFProtect
+>>>>>>> c97e7099a81c539de0b027ea2cf02a3a99866e95
 from functools import wraps
 import time
 import math
 import os
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
 app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)

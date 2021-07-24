@@ -12,6 +12,7 @@ def board_delete_attach_file(filename):
     else:
         return False
 
+<<<<<<< HEAD
 @blueprint.route("/comment_list/<root_idx>", methods=["GET"])
 @login_required
 def comment_list(root_idx):
@@ -28,6 +29,40 @@ def comment_list(root_idx):
             "pubdate": format_datetime(c.get("pubdate")),
         })
     return jsonify(error="success", lists=comment_list)
+=======
+@blueprint.route("/ajax")
+def ajaxtest():
+    return render_template("test.html")
+
+@blueprint.route("/test")
+def test():
+    return "AJAX CALL"
+
+@blueprint.route("comment_write", methods=["POST"])
+@login_required
+def comment_write():
+    if request.method == "POST":
+        name = session.get("name")
+        writer_id = session.get("id")
+        root_idx = request.form.get("root_idx")
+        comment = request.form.get("comment")
+        current_utc_time = round(datetime.utcnow().timestamp() * 1000)
+
+        c_comment = mongo.db.comment
+
+        post = {
+            "root_idx": str(root_idx),
+            "writer_id": writer_id,
+            "name": name,
+            "comment": comment,
+            "pubdate": current_utc_time 
+        }
+
+        c_comment.insert_one(post)
+        return redirect(url_for("board.board_view", idx=root_idx))
+
+
+>>>>>>> c97e7099a81c539de0b027ea2cf02a3a99866e95
 @blueprint.route("/upload_image", methods=["POST"])
 def upload_image():
     if request.method == "POST":
@@ -128,13 +163,17 @@ def board_view(idx):
                 "attachfile": data.get("attachfile", "")
             }
 
+            comment = mongo.db.comment
+            comments = comment.find({"root_idx": str(data.get("_id"))})
+
             return render_template(
                 "view.html",
                 result=result,
                 page=page,
                 search=search,
                 keyword=keyword,
-                title="글 상세보기")
+                title="글 상세보기",
+                comments = comments)
     return abort(404)
 
 

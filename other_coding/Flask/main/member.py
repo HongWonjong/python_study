@@ -3,18 +3,19 @@ from flask import Blueprint
 
 
 blueprint = Blueprint("member", __name__, url_prefix="/member")
+
 @blueprint.route("/join", methods=["GET", "POST"])
 def member_join():
     if request.method == "POST":
         name = request.form.get("name", type=str)
         email = request.form.get("email", type=str)
-        pass1 = request.form.get("pass", type=str)
+        pass1 = request.form.get("pass1", type=str)
         pass2 = request.form.get("pass2", type=str)
         if name is False or email is False or pass1 is False or pass2 is False:
             flash("입력되지 않은 값이 있습니다.")
             return render_template("join.html", title="회원가입")
         if pass1 != pass2:
-            flash("비밀번호가 일치하지 않습니다.")
+            flash("비밀번호가 일치하지 않습니다!")
             return render_template("join.html", title="회원가입")
         members = mongo.db.members
         cnt = members.find({"email": email}).count()
