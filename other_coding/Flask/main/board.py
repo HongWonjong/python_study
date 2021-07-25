@@ -162,17 +162,14 @@ def board_view(idx):
                 "attachfile": data.get("attachfile", "")
             }
 
-            comment = mongo.db.comment
-            comments = comment.find({"root_idx": str(data.get("_id"))})
-
             return render_template(
                 "view.html",
                 result=result,
                 page=page,
                 search=search,
                 keyword=keyword,
-                title="글 상세보기",
-                comments = comments)
+                title="글 상세보기"
+                )
     return abort(404)
 
 
