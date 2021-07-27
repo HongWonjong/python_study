@@ -9,10 +9,18 @@
         $.ajax({
             url: "{{url_for('board.comment_write')}}",
             type: "POST",
-            data: 
+            data: $("#commentForm").serialize(),
+            success: function(data) {
+                $("#comment").val("");
+                get_comment_list();
+            },
+            error: function(request, status, error) {
+                var msg = "Error : " + request.status + "<br>";
+                msg += "내용: " + request.responseText + "<br>" + error;
+                console.log(msg);
 
-        })
-    }
+        });
+    };
 
     function get_comment_list() {
         $.ajax({
@@ -76,6 +84,7 @@
 {% endif %}
 <br>
 <br>
+
 <form id="commentForm" name="commentForm" action="{{url_for('board.comment_write')}}" method="POST">
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
     <input type="hidden" name="root_idx" value="{{result.id}}">
@@ -84,7 +93,7 @@
         <table class="table">
             <tr>
                 <td><textarea rows="3" cols="130" id="comment" name="comment" placeholder="댓글을 입력하세요."></textarea> </td>
-                <td><input type="submit" class="btn btn-success" style="height:80px;" value="등록하기"></td>
+                <td><a href="#" onclick="addComment()" class="btn btn-success style="height: 80px;">등록하기</a></td>
             </tr>
         </table>
     </div>
