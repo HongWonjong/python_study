@@ -3,7 +3,9 @@
 {% block contents %}
 
 <script>
-    $(document).ready(get_comment_list)
+    $(document).ready(function() {
+        get_comment_list();
+    });
 
     function addComment() {
         $.ajax({
@@ -18,9 +20,11 @@
                 var msg = "Error : " + request.status + "<br>";
                 msg += "내용: " + request.responseText + "<br>" + error;
                 console.log(msg);
+                console.log("addComment");
+            }
 
-        });
-    };
+    });
+}   
 
     function get_comment_list() {
         $.ajax({
@@ -82,6 +86,7 @@
     <a class="btn btn-danger" href="{{url_for('board.board_delete', idx=result.id)}}">글삭제</a>
     <a class="btn btn-warning" href="{{url_for('board.board_edit', idx=result.id)}}">글수정</a>
 {% endif %}
+
 <br>
 <br>
 
@@ -92,12 +97,13 @@
         <span><strong>댓글</strong></span> <span id="cCnt"></span>
         <table class="table">
             <tr>
-                <td><textarea rows="3" cols="130" id="comment" name="comment" placeholder="댓글을 입력하세요."></textarea> </td>
-                <td><a href="#" onclick="addComment()" class="btn btn-success style="height: 80px;">등록하기</a></td>
+                <td><textarea rows="3" cols="130" id="comment" name="comment" placeholder="댓글을 입력하세요."></textarea></td>
+                <td><a href="#" onclick="addComment()" class="btn btn-success" style="height: 80px; width:100px;">등록하기</a></td>
             </tr>
         </table>
     </div>
 </form>
 
 <div id="commentList"></div>
+
 {% endblock %}
