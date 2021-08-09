@@ -12,6 +12,22 @@ def board_delete_attach_file(filename):
     else:
         return False
 
+
+@blueprint.route("/comment_delete", methods=["POST"])
+@login_required
+def comment_delete():
+    if request.method == "POST":
+        idx = request.form.get("id")
+        comment = mongo.db.comment
+        data = comment.find_one({"_id": ObjectId(idx)})
+        if data.get("writed_id") == session.get("id"):
+            comment.delete_one({"_id": ObjectId(idx)})
+            return jsonify(error = "success")
+        else:
+            return jsonify(error = "error")
+    return abort(401)
+
+
 @blueprint.route("/comment_list/<root_idx>", methods=["GET"])
 @login_required
 def comment_list(root_idx):
@@ -20,6 +36,7 @@ def comment_list(root_idx):
 
     comment_list = []
     for c in comments:
+        owner = True if c.get("writer_id") == session.get("id") else False
         comment_list.append({
             "id": str(c.get("_id")),
             "root_idx": c.get("root_idx"),
@@ -27,6 +44,7 @@ def comment_list(root_idx):
             "writer_id": c.get("writer_id"),
             "comment": c.get("comment"),
             "pubdate": format_datetime(c.get("pubdate")),
+            "owner": owner
         })
     return jsonify(error="success", lists=comment_list)
 

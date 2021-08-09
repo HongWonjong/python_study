@@ -7,6 +7,34 @@
         get_comment_list();
     });
 
+    function deleteComment(idx) {
+        $.ajax({
+            url: "{{url_for('board.comment_delete')}}",
+            type: "POST",
+            cache: false,
+            data: {
+                "id": idx,
+                "csrf_token": "{{csrf_token()}}"
+            },
+            success: function(data) {
+                if (data["error"] == "success"){
+                    get_comment_list();
+                    alert("삭제되었습니다.");
+                }
+                else if (data["error"] == "error") {
+                    alert("삭제가 왜 안돼지?")
+                }
+            },
+            error: function(request, status, error) {
+                var msg = "Error : " + request.status + "<br>";
+                msg += "내용: " + request.responseText + "<br>" + error;
+                console.log(msg);
+            }
+        })
+    } 
+    function editComment(idx) {
+
+    }
     function addComment() {
         $.ajax({
             url: "{{url_for('board.comment_write')}}",
@@ -20,7 +48,6 @@
                 var msg = "Error : " + request.status + "<br>";
                 msg += "내용: " + request.responseText + "<br>" + error;
                 console.log(msg);
-                console.log("addComment");
             }
 
     });
@@ -41,7 +68,12 @@
                             html += "<table class = 'table'>";
                             html +=  "<tr>";
                             html += "<td width='100'><h6>" + c[i].name + "</h6></td>";
-                            html += "<td>" + c[i].comment + "</td>";
+                            html += "<td>" + c[i].comment;
+                            if (c[i].owner) {
+                                html += " <a href='#' onclick='deleteComment(\"" + c[i].id + "\")'>삭제</a>";
+                                html += " | <a href='#' onclick='editComment(\"" + c[i].id + "\")'>수정</a>";
+                            }   
+                            html += "</td>";
                             html += "<td class='text-right' width='200'>" + c[i].pubdate + "</td>";
                             html += "</tr>";
                             html += "</table>";
