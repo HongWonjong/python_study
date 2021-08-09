@@ -33,7 +33,13 @@
         })
     } 
     function editComment(idx) {
-
+        var html = "";
+        var comment = $("#t" + idx).data("comment");
+        html += "<textarea row=3 cols=110 id='i" + idx + "'>" + comment;
+        html += "</textarea>";
+        html += " <a href='#' onclick='editCommentOK()'>저장</a>";
+        html += " | <a href='#' onclick='cancelEdit()'>취소</a>";
+        $("#t" +idx).html(html);
     }
     function addComment() {
         $.ajax({
@@ -68,7 +74,7 @@
                             html += "<table class = 'table'>";
                             html +=  "<tr>";
                             html += "<td width='100'><h6>" + c[i].name + "</h6></td>";
-                            html += "<td>" + c[i].comment;
+                            html += "<td id='t" + c[i].id + "' data-comment='" + c[i].comment + "'>" + c[i].comment;
                             if (c[i].owner) {
                                 html += " <a href='#' onclick='deleteComment(\"" + c[i].id + "\")'>삭제</a>";
                                 html += " | <a href='#' onclick='editComment(\"" + c[i].id + "\")'>수정</a>";

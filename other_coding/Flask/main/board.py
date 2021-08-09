@@ -20,7 +20,7 @@ def comment_delete():
         idx = request.form.get("id")
         comment = mongo.db.comment
         data = comment.find_one({"_id": ObjectId(idx)})
-        if data.get("writed_id") == session.get("id"):
+        if data.get("writer_id") == session.get("id"):
             comment.delete_one({"_id": ObjectId(idx)})
             return jsonify(error = "success")
         else:
