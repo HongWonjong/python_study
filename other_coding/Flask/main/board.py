@@ -46,7 +46,7 @@ def comment_list(root_idx):
             "pubdate": format_datetime(c.get("pubdate")),
             "owner": owner
         })
-    return jsonify(error="success", lists=comment_list),
+    return jsonify(error="success", lists=comment_list)
 
 @blueprint.route("/ajax")
 def ajaxtest():
