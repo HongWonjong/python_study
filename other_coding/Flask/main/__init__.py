@@ -21,7 +21,7 @@ app = Flask(__name__)
 csrf = CSRFProtect(app)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
 app.secret_key = "ABCD"
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=60)
 mongo = PyMongo(app)
 
 BOARD_IMAGE_PATH = "C:\\git_sample\\other_coding\\Flask\\images"
