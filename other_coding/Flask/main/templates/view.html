@@ -37,6 +37,9 @@
                 html = "";
                 if (c.length > 0) {
                     for(var i = 0; i < c.length; i++) {
+                            if(c[i].owner == true) {
+                                
+                            }
                             html += "<div>";
                             html += "<table class = 'table'>";
                             html +=  "<tr>";
@@ -48,6 +51,7 @@
                             html += "</div>";
                     }
                 }
+                $("#cCnt").html(c.length);
                 $("#commentList").html(html);
             },
             error: function(request, status, error) {
@@ -94,7 +98,7 @@
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
     <input type="hidden" name="root_idx" value="{{result.id}}">
     <div>
-        <span><strong>댓글</strong></span> <span id="cCnt"></span>
+        <span><strong>댓글</strong></span> <span id="cCnt">0</span>
         <table class="table">
             <tr>
                 <td><textarea rows="3" cols="130" id="comment" name="comment" placeholder="댓글을 입력하세요."></textarea></td>

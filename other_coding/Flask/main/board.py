@@ -20,6 +20,7 @@ def comment_list(root_idx):
 
     comment_list = []
     for c in comments:
+        owner = True if c.get("writer_id") == session.get("id") else False
         comment_list.append({
             "id": str(c.get("_id")),
             "root_idx": c.get("root_idx"),
@@ -27,8 +28,9 @@ def comment_list(root_idx):
             "writer_id": c.get("writer_id"),
             "comment": c.get("comment"),
             "pubdate": format_datetime(c.get("pubdate")),
+            "owner": owner
         })
-    return jsonify(error="success", lists=comment_list)
+    return jsonify(error="success", lists=comment_list),
 
 @blueprint.route("/ajax")
 def ajaxtest():
