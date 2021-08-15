@@ -12,6 +12,22 @@ def board_delete_attach_file(filename):
     else:
         return False
 
+
+@blueprint.route("/comment_delete", methods=["POST"])
+@login_required
+def comment_delete():
+    if request.method == "POST":
+        idx = request.form.get("id")
+        comment = mongo.db.comment
+        data = comment.find_one({"_id": ObjectId(idx)})
+        if data.get("writer_id") == session.get("id"):
+            comment.delete_one({"_id": ObjectId(idx)})
+            return jsonify(error = "success")
+        else:
+            return jsonify(error = "error")
+    return abort(401)
+
+
 @blueprint.route("/comment_list/<root_idx>", methods=["GET"])
 @login_required
 def comment_list(root_idx):
