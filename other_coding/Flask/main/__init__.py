@@ -24,8 +24,8 @@ app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=60)
 mongo = PyMongo(app)
 
-BOARD_IMAGE_PATH = "C:\\git_sample\\other_coding\\Flask\\images"
-BOARD_ATTACH_FILE_PATH = "C:\\git_sample\\other_coding\\Flask\\uploads"
+BOARD_IMAGE_PATH = "images"
+BOARD_ATTACH_FILE_PATH = "uploads"
 ALLOWED_EXTENSIONS = set(["txt", "pdf", "png", "jpg", "jpeg", "gif", "jfif", "PNG"])
 
 app.config["BOARD_IMAGE_PATH"] = BOARD_IMAGE_PATH
