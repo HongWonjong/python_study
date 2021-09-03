@@ -19,13 +19,13 @@ import os
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
+app.config["MONGO_URI"] = "mongodb://mongo:27017/myweb"
 app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=60)
 mongo = PyMongo(app)
 
-BOARD_IMAGE_PATH = "/home/administrator/Desktop/myweb/images"
-BOARD_ATTACH_FILE_PATH = "/home/administrator/Desktop/myweb/uploads"
+BOARD_IMAGE_PATH = "/images"
+BOARD_ATTACH_FILE_PATH = "/uploads"
 ALLOWED_EXTENSIONS = set(["txt", "pdf", "png", "jpg", "jpeg", "gif", "jfif", "PNG"])
 
 app.config["BOARD_IMAGE_PATH"] = BOARD_IMAGE_PATH
@@ -43,4 +43,4 @@ from . import board
 from . import member
 
 app.register_blueprint(board.blueprint)
-app.register_blueprint(member.blueprint)
+app.register_blueprint(member.blueprint)  
