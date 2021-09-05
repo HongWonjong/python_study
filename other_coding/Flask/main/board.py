@@ -4,6 +4,13 @@ from flask import send_from_directory
 
 blueprint = Blueprint("board", __name__, url_prefix="/board")
 
+
+def telegram_bot(telegram_message):
+    chat_token = "1932369917:AAH1rreLUbVapprkK1FaenhXCL8EqPMpLmA"
+    chat = telegram.Bot(token=chat_token)
+    updates = chat.getUpdates()
+
+
 def board_delete_attach_file(filename):
     abs_path = os.path.join(app.config["BOARD_ATTACH_FILE_PATH"], filename)
     if os.path.exists(abs_path):
