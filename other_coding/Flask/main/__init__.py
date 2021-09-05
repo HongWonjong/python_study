@@ -16,16 +16,20 @@ from functools import wraps
 import time
 import math
 import os
+import telegram
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-app.config["MONGO_URI"] = "mongodb://mongo:27017/myweb"
+#app.config["MONGO_URI"] = "mongodb://mongo:27017/myweb"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/myweb"
 app.secret_key = "ABCD"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=60)
 mongo = PyMongo(app)
 
-BOARD_IMAGE_PATH = "/images"
-BOARD_ATTACH_FILE_PATH = "/uploads"
+#BOARD_IMAGE_PATH = "/images"
+BOARD_IMAGE_PATH = "C:/git_sample/other_coding/Flask/images"
+#BOARD_ATTACH_FILE_PATH = "/uploads"
+BOARD_ATTACH_FILE_PATH = "C:/git_sample/other_coding/Flask/uploads"
 ALLOWED_EXTENSIONS = set(["txt", "pdf", "png", "jpg", "jpeg", "gif", "jfif", "PNG"])
 
 app.config["BOARD_IMAGE_PATH"] = BOARD_IMAGE_PATH
