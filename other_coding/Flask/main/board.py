@@ -6,9 +6,13 @@ blueprint = Blueprint("board", __name__, url_prefix="/board")
 
 
 def telegram_bot(telegram_message):
-    chat_token = "1932369917:AAH1rreLUbVapprkK1FaenhXCL8EqPMpLmA"
-    chat = telegram.Bot(token=chat_token)
-    updates = chat.getUpdates()
+    if telegram_message == True:
+        chat_token = "1932369917:AAH1rreLUbVapprkK1FaenhXCL8EqPMpLmA"
+        bot = telegram.Bot(token = chat_token)
+        text = telegram_message
+        bot.sendMessage(chat_id="1800637190", text=text)
+        telegram_message == None
+
 
 
 def board_delete_attach_file(filename):
