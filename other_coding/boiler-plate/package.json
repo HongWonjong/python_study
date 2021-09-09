@@ -4,11 +4,13 @@
   "description": "This package is for practice of Node.js and Express.js, and React.js",
   "main": " ",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hong wonjong",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5"
   }
 }
