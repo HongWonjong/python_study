@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Hong wonjong",
+  "author": "Hong wonjong", 
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
